@@ -129,4 +129,4 @@ Speech tokenizer: CosyVoice 3.
 
 ## License
 
-Robin is free to use, change and build on, commercially too, under the [Fixed Seed Open License](LICENSE), which is based on Apache 2.0. If your revenue from Robin and what you make with it passes US$2 million in a year, write to us at support@fixedseed.com about a commercial license. Questions about Robin go to the same address.
+Robin is released under the [Fixed Seed Open License](LICENSE).
