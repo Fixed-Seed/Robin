@@ -1,0 +1,11 @@
+Robin
+Copyright 2026 Fixed Seed LLC (Fixed Seed Research Laboratory)
+
+Licensed under the Fixed Seed Open License, Version 1.0 (see LICENSE).
+
+This repository also contains a third-party file that is not covered by
+the Fixed Seed Open License:
+
+- speech_tokenizer_v3_25hz.onnx: the speech tokenizer from CosyVoice 3
+  (https://github.com/FunAudioLLM/CosyVoice), used under the Apache
+  License, Version 2.0 (a copy is in LICENSE-APACHE-2.0).

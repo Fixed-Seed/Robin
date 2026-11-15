@@ -1,0 +1,229 @@
+{
+  "id": "86cca837-81dd-4e53-84c1-9ba8bed1996c",
+  "revision": 0,
+  "last_node_id": 6,
+  "last_link_id": 6,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "RobinLoader",
+      "pos": [
+        -392.32904829545515,
+        -33.63564275568177
+      ],
+      "size": [
+        270,
+        228
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "locked": null,
+          "name": "robin",
+          "nameLocked": null,
+          "removable": null,
+          "type": "ROBIN_MODEL",
+          "pos": null,
+          "slot_index": null,
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RobinLoader"
+      },
+      "widgets_values": [
+        "robin",
+        "robin_vae.safetensors",
+        "default",
+        "bf16"
+      ],
+      "widgets_values_named": {
+        "model": "robin",
+        "vae": "robin_vae.safetensors",
+        "device": "default",
+        "dtype": "bf16"
+      },
+      "color": "#D9302A",
+      "bgcolor": "#1B1B1C"
+    },
+    {
+      "id": 2,
+      "type": "RobinLoRA",
+      "pos": [
+        -104.10679687500026,
+        -33.72109375000033
+      ],
+      "size": [
+        273.69144531250004,
+        95.80156249999999
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "locked": null,
+          "name": "robin",
+          "nameLocked": null,
+          "removable": null,
+          "type": "ROBIN_MODEL",
+          "pos": null,
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "locked": null,
+          "name": "robin",
+          "nameLocked": null,
+          "removable": null,
+          "type": "ROBIN_MODEL",
+          "pos": null,
+          "slot_index": null,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RobinLoRA"
+      },
+      "widgets_values": [
+        "robin_character_lora.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora": "robin_character_lora.safetensors",
+        "strength": 1
+      },
+      "color": "#D9302A",
+      "bgcolor": "#1B1B1C"
+    },
+    {
+      "id": 3,
+      "type": "RobinSpeak",
+      "pos": [
+        186.8995703125007,
+        -34.50097656249985
+      ],
+      "size": [
+        561.74609375,
+        456.31640625
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "showAdvanced": false,
+      "inputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "locked": null,
+          "name": "robin",
+          "nameLocked": null,
+          "removable": null,
+          "type": "ROBIN_MODEL",
+          "pos": null,
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "color_off": "#F2EEE6",
+          "color_on": "#F2EEE6",
+          "dir": null,
+          "label": null,
+          "locked": null,
+          "name": "audio",
+          "nameLocked": null,
+          "removable": null,
+          "type": "AUDIO",
+          "pos": null,
+          "slot_index": null,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RobinSpeak"
+      },
+      "widgets_values": [
+        "[cough] If you are enjoying the Robin audio experience, don't forget to check out Lattice at fixedseed.com. It's the same folks that trained me. They make pretty cool stuff! ",
+        "",
+        7372229196,
+        "fixed",
+        0.9,
+        25,
+        0.8,
+        1,
+        2,
+        35,
+        "English"
+      ],
+      "widgets_values_named": {
+        "text": "[cough] If you are enjoying the Robin audio experience, don't forget to check out Lattice at fixedseed.com. It's the same folks that trained me. They make pretty cool stuff! ",
+        "voice": "",
+        "seed": 7372229196,
+        "control_after_generate": "fixed",
+        "temperature": 0.9,
+        "top_k": 25,
+        "top_p": 0.8,
+        "cfg": 1,
+        "retries": 2,
+        "max_words": 35,
+        "language": "English"
+      },
+      "color": "#D9302A",
+      "bgcolor": "#1B1B1C"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "ROBIN_MODEL"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "ROBIN_MODEL"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.3310000000000004,
+      "offset": [
+        476.52244566790915,
+        185.40094442863185
+      ]
+    },
+    "frontendVersion": "1.51.10"
+  },
+  "version": 0.4
+}

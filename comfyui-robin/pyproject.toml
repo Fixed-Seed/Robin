@@ -1,0 +1,11 @@
+[project]
+name = "comfyui-robin"
+description = "Robin text to speech in ComfyUI: voices from a description, long text, voice changing and voice LoRAs."
+version = "0.1.0"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = ["safetensors", "tokenizers", "huggingface_hub", "numpy", "soundfile", "torchaudio", "s3tokenizer>=0.3.0"]
+
+[tool.comfy]
+DisplayName = "Robin"
+includes = []

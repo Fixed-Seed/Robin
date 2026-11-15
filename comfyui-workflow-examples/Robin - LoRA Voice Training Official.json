@@ -1,0 +1,204 @@
+{
+  "id": "86cca837-81dd-4e53-84c1-9ba8bed1996c",
+  "revision": 0,
+  "last_node_id": 8,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "RobinLoader",
+      "pos": [
+        -280.51970880681864,
+        -197.51446377840895
+      ],
+      "size": [
+        270,
+        228
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "locked": null,
+          "name": "robin",
+          "nameLocked": null,
+          "removable": null,
+          "type": "ROBIN_MODEL",
+          "pos": null,
+          "slot_index": null,
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RobinLoader"
+      },
+      "widgets_values": [
+        "robin",
+        "robin_vae.safetensors",
+        "default",
+        "bf16"
+      ],
+      "widgets_values_named": {
+        "model": "robin",
+        "vae": "robin_vae.safetensors",
+        "device": "default",
+        "dtype": "bf16"
+      },
+      "color": "#D9302A",
+      "bgcolor": "#1B1B1C"
+    },
+    {
+      "id": 8,
+      "type": "RobinCheckDataset",
+      "pos": [
+        -451.8397117624823,
+        70.40017913917423
+      ],
+      "size": [
+        440,
+        394
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "dataset",
+          "type": "ROBIN_DATASET",
+          "links": [
+            9
+          ]
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RobinCheckDataset"
+      },
+      "widgets_values": [
+        "",
+        "English"
+      ],
+      "widgets_values_named": {
+        "folder": "",
+        "language": "English"
+      },
+      "color": "#D9302A",
+      "bgcolor": "#1B1B1C"
+    },
+    {
+      "id": 7,
+      "type": "RobinTrainLoRA",
+      "pos": [
+        21.434194487518035,
+        -197.34760850287083
+      ],
+      "size": [
+        457.283380681818,
+        611.6058238636364
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [
+        {
+          "name": "robin",
+          "type": "ROBIN_MODEL",
+          "link": 7
+        },
+        {
+          "name": "dataset",
+          "type": "ROBIN_DATASET",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "robin",
+          "type": "ROBIN_MODEL",
+          "links": null
+        },
+        {
+          "name": "lora_name",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RobinTrainLoRA"
+      },
+      "widgets_values": [
+        "my_voice",
+        1000,
+        200,
+        "Hello there! This is a quick test of my new voice. How does it sound to you?",
+        false,
+        32,
+        64,
+        0.00005,
+        0.0002,
+        8,
+        0
+      ],
+      "widgets_values_named": {
+        "name": "my_voice",
+        "steps": 1000,
+        "save_every": 200,
+        "sample_text": "Hello there! This is a quick test of my new voice. How does it sound to you?",
+        "restart": false,
+        "rank_planner": 32,
+        "rank_decoder": 64,
+        "lr_planner": 0.00005,
+        "lr_decoder": 0.0002,
+        "clips_per_step": 8,
+        "seed": 0
+      },
+      "color": "#D9302A",
+      "bgcolor": "#1B1B1C"
+    }
+  ],
+  "links": [
+    [
+      7,
+      1,
+      0,
+      7,
+      0,
+      "ROBIN_MODEL"
+    ],
+    [
+      9,
+      8,
+      0,
+      7,
+      1,
+      "ROBIN_DATASET"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1,
+      "offset": [
+        767.8659901715729,
+        334.53234926991666
+      ]
+    },
+    "frontendVersion": "1.51.10"
+  },
+  "version": 0.4
+}

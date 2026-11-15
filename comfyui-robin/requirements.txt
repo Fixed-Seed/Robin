@@ -1,0 +1,7 @@
+safetensors
+tokenizers
+huggingface_hub
+numpy
+soundfile
+torchaudio
+s3tokenizer>=0.3.0

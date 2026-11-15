@@ -1,0 +1,81 @@
+@font-face { font-family: 'Familjen Grotesk'; src: url(fonts/FamiljenGrotesk.woff2) format('woff2'); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url(fonts/IBMPlexMono-Regular.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url(fonts/IBMPlexMono-Medium.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+
+.robin-panel { box-sizing: border-box; width: 100%; height: 100%; display: flex; flex-direction: column; gap: 8px;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; color: #F2EEE6; }
+.robin-panel * { box-sizing: border-box; }
+.robin-panel button { margin: 0; font-family: inherit; }
+.robin-panel :focus-visible { outline: 2px solid #F2EEE6; outline-offset: 2px; }
+
+/* The readouts on the Loader and Train LoRA nodes */
+.robin-lcd { flex: none; display: flex; flex-direction: column; gap: 4px; padding: 8px 11px; border-radius: 6px; background: #0c0c0c;
+  border: 1px solid #2e2e30; box-shadow: inset 0 0 0 2px #090909; font-size: 11px; line-height: 16px; letter-spacing: .08em;
+  text-transform: uppercase; color: #D9302A; pointer-events: none; }
+.robin-lcd .row { display: flex; justify-content: space-between; gap: 14px; white-space: nowrap; }
+.robin-lcd .row > :first-child { flex: none; color: #8a2a25; }
+.robin-lcd .row > :last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.robin-lcd .meter { margin-top: 4px; height: 6px; border-radius: 3px; background: #241312; overflow: hidden; }
+.robin-lcd .meter > i { display: block; width: 0; height: 100%; background: #D9302A; transition: width .4s ease; }
+
+/* Badge buttons: the cream face, dark ring and red bands of the Robin badge */
+.robin-badge { flex: none; display: inline-flex; align-items: center; gap: 7px; height: 30px; padding: 0 10px 3px 8px; border-radius: 7px;
+  border: 2px solid #F2EEE6; box-shadow: inset 0 0 0 2px #111111;
+  background: linear-gradient(to top, transparent 0 2px, #D9302A 2px 4px, transparent 4px), linear-gradient(180deg, #FFFDF9, #F0D3C8);
+  font-size: 11px; font-weight: 500; line-height: 1; color: #111111; white-space: nowrap; cursor: pointer; }
+.robin-badge.on { background: linear-gradient(to top, transparent 0 2px, #D9302A 2px 4px, transparent 4px), #111111; color: #F2EEE6; }
+.robin-badge:disabled { cursor: default; opacity: .5; }
+.robin-badge svg { flex: none; }
+.robin-play { flex: none; display: grid; place-items: center; width: 40px; height: 40px; padding: 0 0 6px; border-radius: 8px;
+  border: 2px solid #F2EEE6; box-shadow: inset 0 0 0 2px #111111; cursor: pointer;
+  background: linear-gradient(to top, transparent 0 2px, #D9302A 2px 4px, transparent 4px 6px, #D9302A 6px 8px, transparent 8px),
+              linear-gradient(180deg, #FFFDF9, #F0D3C8); }
+.robin-play.on { background: linear-gradient(to top, transparent 0 2px, #D9302A 2px 4px, transparent 4px 6px, #D9302A 6px 8px, transparent 8px), #111111; }
+.robin-play:disabled { cursor: default; opacity: .4; }
+
+/* Speak and Voice Changer: the last take */
+.robin-take { flex: none; display: flex; align-items: center; gap: 10px; height: 58px; padding: 8px 10px 8px 8px; border-radius: 8px;
+  background: #0c0c0c; border: 1px solid #2c2c2f; }
+.robin-wave { flex: 1; min-width: 0; height: 32px; display: flex; align-items: center; justify-content: space-between; gap: 2px; cursor: pointer; }
+.robin-wave > i { flex: 0 1 3px; min-width: 1px; border-radius: 2px; background: #4a4a4c; }
+.robin-wave > i.on { background: #D9302A; }
+.robin-wave.empty { cursor: default; }
+.robin-wave.empty::before { content: ''; flex: 1; height: 1px; background: #2e2e30; }
+.robin-time { flex: none; font-size: 11.5px; color: #a6a49e; white-space: nowrap; }
+.robin-save { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; color: #F2EEE6; }
+.robin-save:hover { background: #232325; }
+.robin-save[hidden] { display: none; }
+
+/* Check Dataset: the folder picker and the report */
+.robin-pick { flex: none; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.robin-pick > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10.5px; letter-spacing: .04em; color: #a6a49e; }
+.robin-hint { flex: none; height: 16px; font-size: 10.5px; line-height: 16px; letter-spacing: .04em; color: #a6a49e; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; }
+.robin-term { flex: 1; min-height: 0; display: flex; flex-direction: column; border-radius: 8px; background: #000000; border: 1px solid #2c2c2e; overflow: hidden; }
+.robin-term > header { flex: none; display: flex; align-items: center; gap: 7px; padding: 7px 10px; background: #161617; border-bottom: 1px solid #262628; }
+.robin-term > header > i { width: 9px; height: 9px; border-radius: 50%; background: #333335; }
+.robin-term > header > i:first-child { background: #D9302A; }
+.robin-term > header > span { margin-left: 6px; font-size: 10px; letter-spacing: .1em; color: #a6a49e; }
+.robin-term > pre { flex: 1; min-height: 0; margin: 0; padding: 10px 12px 12px; overflow: auto; font: 11.5px/1.7 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  color: #F2EEE6; white-space: pre-wrap; overflow-wrap: anywhere; user-select: text; }
+.robin-term .ok { color: #9fcf8f; }
+.robin-term .bad { color: #e8766f; }
+.robin-term .note { color: #d9b36b; }
+.robin-term .dim { color: #a6a49e; }
+
+/* Train LoRA: advanced settings, the readout and the saved steps */
+.robin-more { flex: none; display: flex; align-items: center; gap: 8px; height: 26px; padding: 0 12px; border-radius: 13px; background: transparent;
+  border: 1px dashed #3a3a3d; font-size: 11px; letter-spacing: .04em; color: #a6a49e; white-space: nowrap; overflow: hidden; cursor: pointer; }
+.robin-more:hover { border-color: #5a5a5e; color: #F2EEE6; }
+.robin-more svg { flex: none; transition: transform .15s ease; }
+.robin-more.open svg { transform: rotate(90deg); }
+.robin-saved { flex: none; display: flex; align-items: center; gap: 8px; height: 30px; overflow-x: auto; scrollbar-width: none; }
+.robin-saved::-webkit-scrollbar { display: none; }
+.robin-saved > b { flex: none; margin-right: 2px; font-size: 10px; font-weight: 400; letter-spacing: .12em; color: #a6a49e; }
+.robin-wait { flex: none; display: flex; align-items: center; height: 30px; padding: 0 10px; border-radius: 7px; border: 1px dashed #3a3a3d;
+  font-size: 11px; color: #5e5d59; }
+
+/* Robin's text boxes */
+textarea.robin-text { background: #111113 !important; border: 1px solid #2c2c2f !important; border-radius: 6px !important; color: #F2EEE6 !important;
+  font: 12px/1.55 'IBM Plex Mono', ui-monospace, Menlo, monospace !important; padding: 9px 10px !important; }
+textarea.robin-text::placeholder { color: #5e5d59; }
