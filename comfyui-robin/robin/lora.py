@@ -64,6 +64,12 @@ class LoRA(nn.Module):
             return out + (delta * (self._factor[i] * self.scale)).to(out.dtype)
         return hook
 
+    def delta(self, i, device=None):
+        """The change this LoRA makes to the weight of module i at its current scale, in float32
+        (what the hook adds, folded into the weight once instead of computed at every call)."""
+        a, b = self.A[i].to(device=device, dtype=torch.float32), self.B[i].to(device=device, dtype=torch.float32)
+        return (b @ a) * (self._factor[i] * self.scale)
+
     def config(self, base_sha256=None):
         return dict(format=FORMAT, ranks=self.ranks, alphas=self.alphas, targets=list(self.targets), base_sha256=base_sha256)
 
